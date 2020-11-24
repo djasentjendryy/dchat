@@ -1,0 +1,7 @@
+{
+  "name": "dchat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
