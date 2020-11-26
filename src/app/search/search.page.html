@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onClose()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+      <ion-title class="title">Search</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar mode="ios" [formControl]="searchControl"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">
+      <ion-avatar slot="start">
+        <img src={{dummy.imgUrl}}>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{dummy.nama}}</h2>
+        <span *ngFor="let lang of dummy.lang; let i = index">
+          <!-- INI UNTUK GANTI TITIK KALAU UDAH DI AKHIR BAHASA -->
+          <span *ngIf="i != dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}, </span>
+          <span *ngIf="i == dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}.</span>
+        </span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

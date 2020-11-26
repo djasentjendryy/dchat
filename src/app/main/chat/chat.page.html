@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="navigateSearch()" routerLinkActive="router-link-active" fill="clear" shape="round" slot="start">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+    <ion-title class="title">Obrolan</ion-title>
+    <ion-button (click)="onClick()"  fill="clear" shape="round" slot="end">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- LIST RECENT CHAT -->
+  <ion-list>
+    <ion-item *ngFor="let rc of recentChat" [routerLink]="['/','main','roomchat',rc.key]">
+      <ion-avatar slot="start">
+        <img src="../../../assets/img/logo.png">
+      </ion-avatar>
+      <ion-label>
+        <h2 *ngFor="let user of rc.participant">{{user}}</h2>
+        <p>{{rc.messages.msg}}</p>
+      </ion-label>
+      <!-- <ion-badge color="danger" mode="ios">99+</ion-badge> -->
+    </ion-item>
+  </ion-list>
+</ion-content>

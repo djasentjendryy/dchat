@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar (click)="presentPopover($event)">
+    <img [src]="imageUrl"/>
+    <div class="test">
+
+      <span class="edit"><ion-icon name="camera"></ion-icon></span>
+    </div>
+  </ion-avatar>
+
+  <div class="profile">
+     <form (ngSubmit)="saveProfile()" [formGroup]="updateProfile">
+      <ion-item lines="undefined">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label position="floating">
+          <h3>Nama</h3>
+        </ion-label>
+        <ion-input type="text" nama formControlName="nama" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="call"></ion-icon>
+        <ion-label position="floating">
+          <h3>Nomor Telepon</h3>
+        </ion-label>
+        <ion-input type="text" formControlName="noTelp"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="mail"></ion-icon>
+        <ion-label position="floating">
+          <h3>Email</h3>
+        </ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+       <div class="bhs">
+         <h5 class="title">Bahasa yang dikuasai</h5>
+         <ion-grid fixed>
+           <ion-row  class="ion-justify-content-center">
+             <ion-col size="4" *ngFor="let  bahasa of user.bahasa">
+               <ion-img src="../../../assets/img/medal.png"></ion-img>
+               <h5 class="subtitle">{{bahasa}}</h5>
+             </ion-col>
+           </ion-row>
+         </ion-grid>
+       </div>
+       <div class="btn-section">
+         <ion-grid>
+           <ion-row>
+             <ion-button type="submit" shape="round" >
+               <ion-icon class="icon-btn" slot="start" name="save"></ion-icon>
+               <ion-label class="label-btn">Simpan</ion-label>
+             </ion-button>
+           </ion-row>
+           <ion-row>
+             <ion-button (click)="presentAlert()"  shape="round">
+               <ion-icon class="icon-btn" slot="start" name="close"></ion-icon>
+               <ion-label class="label-btn">Batal</ion-label>
+             </ion-button>
+           </ion-row>
+         </ion-grid>
+       </div>
+
+     </form>
+  </div>
+
+</ion-content>
