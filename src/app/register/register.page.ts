@@ -56,9 +56,6 @@ export class RegisterPage implements OnInit {
       password: new FormControl(null, {
         validators: [Validators.required],
       }),
-      bahasa: new FormControl(null, {
-        validators: [Validators.required]
-      })
     });
   }
 
@@ -74,16 +71,9 @@ export class RegisterPage implements OnInit {
                   nama: this.formSignUp.value.nama,
                   email: this.formSignUp.value.email,
                   noTelp: this.formSignUp.value.noTelp,
-                  lang: this.formSignUp.value.bahasa
                 };
 
-                this.userService.newUser(userData, resp.user.uid )
-                    .then(res => {
-                      console.log(res);
-                    })
-                    .catch(error => {
-                      console.log(error);
-                    });
+                this.userService.newUser(userData, resp.user.uid );
                 this.formSignUp.reset();
                 this.presentLoading().then(() => {
                   this.router.navigate(['./login']);
@@ -96,7 +86,7 @@ export class RegisterPage implements OnInit {
               });
         })
         .catch(error => {
-          this.errorMsg = error.message;
+            this.toastSentEmail(error.message);
         });
   }
 

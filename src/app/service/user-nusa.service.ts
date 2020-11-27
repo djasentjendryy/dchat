@@ -9,7 +9,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 export class UserNusaService {
   private Dummy: any = [];
   private profileImage: any;
-  private dbPath = '/userNusa/';
+  private dbPath = '/userDchat/';
   userRef: AngularFireList<UserNusa> = null;
   constructor(
       private db: AngularFireDatabase,
@@ -42,16 +42,16 @@ export class UserNusaService {
   }
 
   getAllUser(){
-    return this.userRef
+    return this.userRef;
   }
 
-  newUser(user: { nama: string; email: string; noTelp: string; lang: string[] }, uid ): any{
+  newUser(user: { nama: string; email: string; noTelp: string; }, uid ): any{
     console.log(user);
     return this.db.object(this.dbPath + uid).set({
       nama: user.nama,
       email: user.email,
       noTelp: user.noTelp,
-      lang: user.lang
+      privilege: 'user',
     });
   }
 

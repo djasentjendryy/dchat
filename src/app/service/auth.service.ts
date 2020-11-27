@@ -30,7 +30,17 @@ export class AuthService {
             console.log(data);
             localStorage.setItem('currUser', JSON.stringify(data));
             localStorage.setItem('UID', uid);
-            this.router.navigate(['/main/tabs/dashboard']);
+
+            // USER LOGIN //
+            // @ts-ignore
+            if (data.privilege === 'user' ){
+                this.router.navigate(['/main/tabs/dashboard']);
+            } // ADMIN LOGIN //
+            else {
+                console.log('INI PAGE ADMIN');
+            }
+
+
         });
     }
 
