@@ -38,6 +38,7 @@ export class AuthService {
             } // ADMIN LOGIN //
             else {
                 console.log('INI PAGE ADMIN');
+                this.router.navigate(['/admin']);
             }
 
 
