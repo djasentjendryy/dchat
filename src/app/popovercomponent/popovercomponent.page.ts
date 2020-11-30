@@ -22,7 +22,8 @@ export class PopovercomponentPage implements OnInit {
     this.camera.getPicture(
         {
           sourceType: this.camera.PictureSourceType.CAMERA,
-          destinationType: this.camera.DestinationType.DATA_URL
+          destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
         }
     ).then((res) => {
         this.imageUrl = 'data:image/jpeg;base64,' + res;

@@ -45,13 +45,13 @@ export class UserNusaService {
     return this.userRef;
   }
 
-  newUser(user: { nama: string; email: string; noTelp: string; }, uid ): any{
+  newUser(user: { nama: string; email: string; noTelp: string; privilege: string }, uid ): any{
     console.log(user);
     return this.db.object(this.dbPath + uid).set({
       nama: user.nama,
       email: user.email,
       noTelp: user.noTelp,
-      privilege: 'user',
+      privilege: user.privilege,
     });
   }
 
@@ -64,11 +64,15 @@ export class UserNusaService {
     });
   }
 
-  updateUser(data, uid){
-    this.storage.ref(this.dbPath + uid + '/profileImage/').getDownloadURL().subscribe(res => {
-      this.profileImage = res;
-    });
-    return this.db.object(this.dbPath + uid).update({nama: data.nama, profileImage: this.profileImage});
+  updateUser(data, uid, uploadImage){
+    if (uploadImage){
+      this.storage.ref(this.dbPath + uid + '/profileImage/').getDownloadURL().subscribe(res => {
+        this.db.object(this.dbPath + uid).update({nama: data.nama, profileImage: res});
+      });
+    }else{
+      this.db.object(this.dbPath + uid).update({nama: data.nama});
+    }
+
   }
 
   uploadProfileImage(imageData, uid){
