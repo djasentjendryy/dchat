@@ -3,7 +3,6 @@ ion-avatar{
     width: 10rem;
     height: 10rem;
     background-color: rgb(245, 244, 244);
-    padding: 1rem;
     cursor: pointer;
 }
 ion-icon{
@@ -21,8 +20,8 @@ ion-button{
 }
 .edit{
     position: absolute;
-    right:-20px;
-    top:6rem;
+    padding-left: 120px;
+    top:8.2rem;
 }
 .edit ion-icon{
     width: 1.5rem;
