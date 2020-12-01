@@ -19,6 +19,7 @@ export class SearchPage implements OnInit {
   public searchControl:FormControl;
   public searchTerm: string = "";
   currUser: string = JSON.parse(localStorage.getItem('currUser')).nama
+  currUserId: string = localStorage.getItem('UID');
 
   constructor(
     private userNusaService : UserNusaService, 
@@ -26,40 +27,28 @@ export class SearchPage implements OnInit {
     private roomService: RoomService,
     private navCtrl: NavController
   ) {
-    this.searchControl = new FormControl();
+    this.searchControl = new FormControl('');
    }
 
-   ngOnInit() {
+  ngOnInit() {this.setFilteredItems()}
 
-    if(this.lang){
-      this.userNusaService.getAllUser().snapshotChanges().pipe(
-        map( changes => 
-          changes.map(c => ({
-            imgUrl: '../../../assets/img/logo.png',...c.payload.val()
-          }))
-        )
-      ).subscribe( data => {
-        this.Dummy = data.filter( user => {
-          return user.lang.includes(this.lang) && user.nama != this.currUser
-        })
+  setFilteredItems() { //FUNCTION UNTUK FILTER
+    const keyword = this.searchControl.value
+    const arr_result = []
+    this.userNusaService.filterItems(keyword)
+    .then(rawdata => {
+      rawdata.forEach( data => {
+        if(data.val()['nama'] != this.currUser){
+          const setdata = {
+            key: data.key,
+            ...data.val()
+          }
+          arr_result.push(setdata)
+        }
       })
-    }
-    else{
-      this.userNusaService.getAllUser().snapshotChanges().pipe(
-        map( changes => 
-          changes.map(c => ({
-            imgUrl: '../../../assets/img/logo.png',...c.payload.val()
-          }))
-        )
-      ).subscribe( data => {
-        this.Dummy = data.filter( user => {
-          return user.nama != this.currUser
-        })
-      })
-    }
-  }
-  setFilteredItems(searchTerm) { //FUNCTION UNTUK FILTER
-    this.Dummy = this.userNusaService.filterItems(searchTerm);
+      this.Dummy = arr_result
+      console.log(this.Dummy)
+    })  
   }
 
   chat(user:string){

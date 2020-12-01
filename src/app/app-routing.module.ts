@@ -34,11 +34,14 @@ const routes: Routes = [
   {
     path: 'popovercomponent',
     loadChildren: () => import('./popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
-  },  {
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  }
-
+  },  {
+    path: 'addcontact',
+    loadChildren: () => import('./addcontact/addcontact.module').then( m => m.AddcontactPageModule)
+  },
 
 
 ];

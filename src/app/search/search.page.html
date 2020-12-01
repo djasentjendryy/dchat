@@ -8,7 +8,7 @@
       <ion-title class="title">Search</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar mode="ios" [formControl]="searchControl"></ion-searchbar>
+    <ion-searchbar mode="ios" [formControl]="searchControl" (ionChange)="setFilteredItems()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
