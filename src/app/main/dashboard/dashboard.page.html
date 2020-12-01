@@ -43,7 +43,7 @@
     <ion-row>
       <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f; height: 135px" [routerLink]="['./',data.id]">
         <img src="{{data.imageURL}}" alt="dummy">
-        <ion-label>
+        <ion-label id="nama_rs">
           {{data.nama}}
         </ion-label>
       </ion-col>
