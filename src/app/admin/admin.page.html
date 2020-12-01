@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Admin</ion-title>
-    <ion-icon name="log-out-outline" slot="end" (click)="signout()"></ion-icon>
+    <ion-icon name="log-out-outline" slot="end" (click)="signout()" ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content style="margin-left: 0; padding-left: 0;">
   <ion-grid>
-    <ion-row size="12">
-      <ion-col size="12" >
-        <ion-button color="primary" (click)="create()">
-          Create Account<ion-icon name="add-circle" style="margin-left: 10px;"></ion-icon>
+    <ion-row size="12" >
+      <ion-col size="12" style="margin-left: 0; padding-left: 0;">
+        <ion-button color="primary" (click)="create()" style="margin-left: 5px; padding-left: 0;">
+          Create Account<ion-icon name="add-circle" style="margin-left: 0px;"></ion-icon>
         </ion-button>
         <ion-item-sliding style="margin-bottom: 10px;" *ngFor="let  user of users" #slidingItems>
           <!--    edit      -->
@@ -24,10 +24,10 @@
           </ion-item-options>
 
           <ion-item  lines="none">
-            <img [src]="user.profileImage" *ngIf="user.profileImage != null" style="width: 70px; height: 70px; margin: 10px; align-self: center;" />
+            <img [src]="user.profileImage" *ngIf="user.profileImage != null" style="width: 70px; height: 70px; margin: 0px; align-self: center;" />
             <img src="../../../assets/img/orang.png" *ngIf="user.profileImage == null" style="width: 70px; height: 70px; margin: 10px; align-self: center;" />
             <ion-col style="align-self: center;">
-              <ion-label class="item-content-12">Nama Barang  : {{user.nama}}<br></ion-label>
+              <ion-label class="item-content-12">{{user.nama}}<br></ion-label>
 <!--              <ion-label class="item-content-12">Harga Barang : Rp {{item.harga}},00<br></ion-label>-->
 <!--              <ion-label class="item-content-12">Stok         : {{item.stok}}</ion-label>-->
             </ion-col>
