@@ -60,7 +60,7 @@ export class UserNusaService {
   }
 
   get_all_user(){
-    return this.db.list(this.dbPath).valueChanges();
+    return this.db.object(this.dbPath).valueChanges();
   }
 
   filterItems(keyword) {
@@ -82,5 +82,9 @@ export class UserNusaService {
 
   uploadProfileImage(imageData, uid){
     return this.storage.ref(this.dbPath + uid + '/profileImage/').putString(imageData, 'data_url');
+  }
+
+  deleteUser(uid){
+    return this.db.object(this.dbPath + uid).remove();
   }
 }
