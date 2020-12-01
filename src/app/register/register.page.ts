@@ -71,6 +71,7 @@ export class RegisterPage implements OnInit {
                   nama: this.formSignUp.value.nama,
                   email: this.formSignUp.value.email,
                   noTelp: this.formSignUp.value.noTelp,
+                    privilege: 'user'
                 };
 
                 this.userService.newUser(userData, resp.user.uid );

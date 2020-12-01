@@ -26,15 +26,15 @@
 <ion-content fullscreen>
   <ion-slides pager="true">
     <ion-slide>
-      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg">
+      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg" alt="dummy">
     </ion-slide>
 
     <ion-slide>
-      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg">
+      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg" alt="dummy">
     </ion-slide>
 
     <ion-slide>
-      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg">
+      <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg" alt="dummy">
     </ion-slide>
   </ion-slides>
 
@@ -42,13 +42,19 @@
   <ion-grid style="margin-top: 7%; margin-left: 0;">
     <ion-row>
       <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f;" [routerLink]="['./',data.id]">
-        <img src="{{data.imageURL}}">
+        <img src="{{data.imageURL}}" alt="dummy">
         <ion-label>
           {{data.nama}}
         </ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
+<!--  <iframe src="http://localhost:8100/main/tabs/chat"></iframe>-->
+  <ion-list class="box">
+        <ion-item>
+
+        </ion-item>
+  </ion-list>
 <!--  <ion-list>-->
 <!--    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">-->
 <!--      <ion-avatar slot="start">-->

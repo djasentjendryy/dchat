@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/admin"> BACCCK </ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formAdmin" (ngSubmit)="submitForm()" >
+    <ion-list>
+      <ion-item>
+        <ion-label  position="floating">Email</ion-label>
+        <ion-textarea formControlName="email" ></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Nama</ion-label>
+        <ion-input formControlName="nama" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Phone Number</ion-label>
+        <ion-input  formControlName="noTelp" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Privilege</ion-label>
+        <ion-select  interface="action-sheet" formControlName="privilege">
+          <ion-select-option value="Dokter">Dokter</ion-select-option>
+          <ion-select-option value="Perawat">Perawat</ion-select-option>
+          <ion-select-option value="Staff">Staff</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <ion-button type="submit" style="margin-left: 16px;">
+      Submit
+    </ion-button>
+  </form>
+</ion-content>
