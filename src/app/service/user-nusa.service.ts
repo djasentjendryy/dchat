@@ -60,7 +60,7 @@ export class UserNusaService {
   }
 
   get_all_user(){
-    return this.db.list(this.dbPath).valueChanges();
+    return this.db.object(this.dbPath).valueChanges();
   }
 
   filterItems(keyword) {
@@ -96,5 +96,9 @@ export class UserNusaService {
       this.db.list(this.dbPath+currUserId+'/friends').push(userIdAdd)
       return "success";
     }
+  }
+
+  deleteUser(uid){
+    return this.db.object(this.dbPath + uid).remove();
   }
 }

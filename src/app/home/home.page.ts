@@ -8,15 +8,19 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   splash = true;
-
+  loggedUser: any;
   constructor(private router: Router) {
   }
 
   ionViewWillEnter(){
-    if (localStorage.getItem('currUser')){
-
+    this.loggedUser = JSON.parse(localStorage.getItem('currUser'));
+    if (this.loggedUser != null){
       setTimeout(() => {
-        this.router.navigate(['/main/tabs/dashboard']); this.splash = false;
+        if (this.loggedUser.privilege === 'admin'){
+          this.router.navigate(['/admin']); this.splash = false;
+        }else {
+          this.router.navigate(['/main/tabs/dashboard']); this.splash = false;
+        }
       }, 4000);
     }else{
 
