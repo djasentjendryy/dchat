@@ -17,19 +17,19 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currUser'));
-    if (this.user.profileImage !== ''){
-      this.imageUrl = this.user.profileImage;
-    }else{
+    if (this.user.profileImage == null ){
       this.imageUrl = '../../../assets/img/orang.png';
+    }else{
+      this.imageUrl = this.user.profileImage;
     }
   }
 
   ionViewWillEnter(){
     this.user = JSON.parse(localStorage.getItem('currUser'));
-    if (this.user.profileImage !== ''){
-      this.imageUrl = this.user.profileImage;
-    }else{
+    if (this.user.profileImage == null ){
       this.imageUrl = '../../../assets/img/orang.png';
+    }else{
+      this.imageUrl = this.user.profileImage;
     }
   }
 

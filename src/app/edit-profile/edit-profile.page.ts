@@ -13,6 +13,7 @@ import {Router} from '@angular/router';
 })
 export class EditProfilePage implements OnInit {
   user: any;
+  uploadImage = false;
   imageUrl: any;
   updateProfile: FormGroup;
   constructor(
@@ -28,10 +29,10 @@ export class EditProfilePage implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currUser'));
 
-    if (this.user.profileImage !== ''){
-      this.imageUrl = this.user.profileImage;
-    }else{
+    if (this.user.profileImage == null ){
       this.imageUrl = '../../../assets/img/orang.png';
+    }else{
+      this.imageUrl = this.user.profileImage;
     }
 
     this.updateProfile = new FormGroup({
@@ -50,10 +51,10 @@ export class EditProfilePage implements OnInit {
   ionViewWillEnter(){
     this.user = JSON.parse(localStorage.getItem('currUser'));
 
-    if (this.user.profileImage !== ''){
-      this.imageUrl = this.user.profileImage;
-    }else{
+    if (this.user.profileImage == null ){
       this.imageUrl = '../../../assets/img/orang.png';
+    }else{
+      this.imageUrl = this.user.profileImage;
     }
 
     this.updateProfile = new FormGroup({
@@ -70,21 +71,16 @@ export class EditProfilePage implements OnInit {
   }
 
   saveProfile(){
-    this.userService.uploadProfileImage(this.imageUrl, localStorage.getItem('UID'));
-    this.userService.updateUser(this.updateProfile.value, localStorage.getItem('UID'))
-        .then(() => {
-          console.log('UPDATE SUCCESS');
-          this.userService.getUser(localStorage.getItem('UID')).subscribe(data => {
-            console.log(data);
-            // renew user session //
-            localStorage.setItem('currUser', JSON.stringify(data));
-            // tolong di benerin loadingny //
-            this.presentLoading();
-            this.router.navigate(['/main/tabs/profile']);
-          });
-        }).catch((err) => {
-          console.log(err);
-        });
+    this.userService.updateUser(this.updateProfile.value, localStorage.getItem('UID'), this.uploadImage);
+    this.uploadImage = false;
+    this.userService.getUser(localStorage.getItem('UID')).subscribe(data => {
+      console.log(data);
+      // renew user session //
+      localStorage.setItem('currUser', JSON.stringify(data));
+      // tolong di benerin loadingny //
+      this.presentLoading();
+      this.router.navigate(['/main/tabs/profile']);
+    });
   }
 
 
@@ -97,7 +93,6 @@ export class EditProfilePage implements OnInit {
     await loading.present();
 
     const { role, data } = await loading.onDidDismiss();
-    console.log('Loading dismissed!');
   }
 
 
@@ -115,7 +110,8 @@ export class EditProfilePage implements OnInit {
     await popover.onDidDismiss()
         .then(result => {
           this.imageUrl = result.data;
-          console.log('TEST INI BENER GAA ' + result.data);
+          this.userService.uploadProfileImage(this.imageUrl, localStorage.getItem('UID'));
+          this.uploadImage = true;
         })
         .catch(err => {
           console.log(err);

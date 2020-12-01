@@ -31,13 +31,15 @@ export class AuthService {
             localStorage.setItem('currUser', JSON.stringify(data));
             localStorage.setItem('UID', uid);
 
-            // USER LOGIN //
+
             // @ts-ignore
-            if (data.privilege === 'user' ){
-                this.router.navigate(['/main/tabs/dashboard']);
-            } // ADMIN LOGIN //
-            else {
+            if (data.privilege === 'admin'  ){
+                // ADMIN LOGIN //
                 console.log('INI PAGE ADMIN');
+                this.router.navigate(['/admin']);
+            } // USER SELAIN ADMIN //
+            else {
+                this.router.navigate(['/main/tabs/dashboard']);
             }
 
 

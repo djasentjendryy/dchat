@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin</ion-title>
+    <ion-icon name="log-out-outline" slot="end" (click)="signout()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br><br>
+  <ion-button color="primary" (click)="create()">
+    Create Account<ion-icon name="add-circle" style="margin-left: 10px;"></ion-icon>
+  </ion-button>
+  <br><br>
+  <ion-list>
+    <ion-item-sliding #slidingItem >
+      <ion-item-options side="start">
+        <ion-item-option (click)="edit()">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-row>
+          <img style="width: 80px; height: 80px;" src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg">
+          <ion-col>
+            <ion-row>
+              Nama  : wew
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="delete()">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+<!--    <ion-item-sliding>-->
+<!--      <ion-item-option side="start" #slidingItem>-->
+<!--        <ion-icon name="create-outline" slot="icon-only"></ion-icon>-->
+<!--      </ion-item-option>-->
+<!--      <ion-item>-->
+<!--        <ion-avatar slot="start">-->
+<!--          <img src="https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg">-->
+<!--&lt;!&ndash;          <ion-img [src]='https://cdn-2.tstatic.net/newsmaker/foto/bank/images/jisoo-blackpink.jpg' ></ion-img>&ndash;&gt;-->
+<!--        </ion-avatar>-->
+<!--      </ion-item>-->
+<!--    </ion-item-sliding>-->
+  </ion-list>
+</ion-content>
