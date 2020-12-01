@@ -34,7 +34,8 @@ const routes: Routes = [
   {
     path: 'popovercomponent',
     loadChildren: () => import('./popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
-  },  {
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   }
