@@ -3,7 +3,7 @@
   <ion-text class="judul biru">Register</ion-text>
   <div style="padding-top: 20%;"></div>
   <ion-content>
-    <form [formGroup]="formSignUp" (ngSubmit)="submitForm()" style="padding-right: 15%; padding-left: 10%">
+    <form [formGroup]="formSignUp" (ngSubmit)="submitForm()">
       <ion-grid>
 
 <!--        <ion-item color="danger" class="ion-margin-bottom" *ngIf="err_msg">-->
@@ -35,12 +35,13 @@
         </ion-item>
 
       </ion-grid>
-      <ion-button type="submit" class="tengah" color="primary" style="padding-left: 35%; margin-top: 10%;" [disabled]="!formSignUp.valid">
-        <ion-text color="light">
-          Register
-        </ion-text>
-      </ion-button>
-      
+      <div class="btn-register">
+        <ion-button type="submit"  color="primary" [disabled]="!formSignUp.valid">
+          <ion-text color="light">
+            Register
+          </ion-text>
+        </ion-button>
+      </div>
     </form>
     <div class="subtitle-regist ion-text-center ion-margin-top">
       Sudah punya akun ?
