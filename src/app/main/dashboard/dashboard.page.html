@@ -13,7 +13,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="onClose()">
-        <ion-icon slot="start" name="close"></ion-icon>
+        <ion-icon style="color:white" slot="start" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title class="title">Search</ion-title>
@@ -49,12 +49,39 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-<!--  <iframe src="http://localhost:8100/main/tabs/chat"></iframe>-->
-  <ion-list class="box">
-        <ion-item>
 
-        </ion-item>
-  </ion-list>
+
+  <div class="recentTitle">
+    <h4>Recent Chat</h4>
+  </div>
+  <div class="recentSection">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="recentUser">
+          <ion-avatar class="userAvatar">
+            <img class="userImg" src="../../../assets/img/logo.png">
+          </ion-avatar>
+          <div>
+            <ion-label class="userRecent">
+              <h2>djasen</h2>
+            </ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="12" class="recentUser">
+          <ion-avatar class="userAvatar">
+            <img class="userImg" src="../../../assets/img/logo.png">
+          </ion-avatar>
+          <div>
+            <ion-label class="userRecent">
+              <h2>djasen</h2>
+            </ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </div>
+ <!-- <iframe src="http://localhost:8100/iframe-chat"></iframe> -->
+  
 <!--  <ion-list>-->
 <!--    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">-->
 <!--      <ion-avatar slot="start">-->
