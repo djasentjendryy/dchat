@@ -7,22 +7,24 @@ ion-avatar{
     cursor: pointer;
 }
 ion-icon{
-    color: #7296C8;
+    color: black;
 }
 ion-title{
     color:white;
 }
 
-ion-button{
-    --background: var(--default, --primary);
+ion-button {
+    --background:#C4C4C4;
+    --border-color:#C4C4C4;
+    color: black
 }
 .test{
     position:relative;
 }
 .edit{
     position: absolute;
-    right:-20px;
-    top:6rem;
+    padding-left: 120px;
+    top:8.2rem;
 }
 .edit ion-icon{
     width: 1.5rem;
@@ -43,9 +45,10 @@ ion-img{
 
 .label-btn{
     font-weight: 550;
+    text-transform: capitalize;
 }
 .icon-btn{
-    color:white;
+    color:black;
 }
 
 .title{
@@ -57,4 +60,10 @@ ion-img{
 }
 .btn-section ion-grid ion-row ion-button{
     margin: 0.25rem auto 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile{
+        margin: 1rem 1rem 1rem 1rem;
+    }
 }

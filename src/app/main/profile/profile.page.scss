@@ -5,15 +5,19 @@ ion-avatar{
     background-color: white;
     padding: 1rem;
 }
+
+.testt{
+    position: absolute;
+    height: 5rem;
+    width: 100%;
+    z-index: -1;
+    background-color: #5A5AAD;
+}
 ion-icon{
-    color: #7296C8;
+    color: black;
 }
 ion-title{
     color:white;
-}
-
-ion-button{
-    --background: var(--default, --primary);
 }
 
 ion-img{
@@ -28,9 +32,15 @@ ion-img{
 
 .label-btn{
     font-weight: 550;
+    text-transform: capitalize;
 }
 .icon-btn{
-    color:white;
+    color:black;
+}
+ion-button {
+    --background:#C4C4C4;
+    --border-color:#C4C4C4;
+    color: black
 }
 
 .title{
@@ -43,3 +53,24 @@ ion-img{
 .btn-section ion-grid ion-row ion-button{
     margin: 0.25rem auto 1rem;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .profile{
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

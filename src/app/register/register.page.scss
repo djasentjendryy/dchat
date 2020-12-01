@@ -6,3 +6,16 @@
 .biru{
   color: #7296C8;
 }
+@media only screen and (max-width: 600px) {
+  form{
+    padding: 1rem;
+  }
+}
+form{
+  padding: 1rem 2rem 3rem 2rem;
+}
+.btn-register{
+  width: fit-content;
+  margin: auto;
+  margin-top: 2rem;
+}
