@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start" >
       <ion-back-button default-href="/admin" color="light"></ion-back-button>
     </ion-buttons>
@@ -12,11 +12,7 @@
     <ion-list>
       <ion-item>
         <ion-label  position="floating">Email</ion-label>
-        <ion-textarea
-                formControlName="email"
-                type="email"
-                required>
-        </ion-textarea>
+        <ion-input formControlName="email" type="email" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Nama</ion-label>
@@ -28,10 +24,7 @@
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Password</ion-label>
-        <ion-input
-                formControlName="password"
-                type="password">
-        </ion-input>
+        <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
       <br>
       <ion-item>
