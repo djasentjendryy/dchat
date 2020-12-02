@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar (click)="presentPopover($event)">
+    <img [src]="imageUrl"/>
+      <div> 
+        <span class="edit"><ion-icon name="camera"></ion-icon></span>
+      </div>
+  </ion-avatar>
+  <div class="profile">
+    <form (ngSubmit)="saveProfile()" [formGroup]="updateProfile">
+      <ion-item lines="undefined">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label position="floating">
+          <h3>Name</h3>
+        </ion-label>
+        <ion-input type="text" nama formControlName="nama" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="call"></ion-icon>
+        <ion-label position="floating">
+          <h3>Phone Number</h3>
+        </ion-label>
+        <ion-input type="text" formControlName="noTelp"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="mail"></ion-icon>
+        <ion-label position="floating">
+          <h3>Email</h3>
+        </ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="ion-padding"></div>
+       <div class="btn-section">
+         <ion-grid>
+           <ion-row>
+             <ion-button type="submit" shape="round" >
+               <ion-icon class="icon-btn" slot="start" name="save"></ion-icon>
+               <ion-label class="label-btn">Save</ion-label>
+             </ion-button>
+           </ion-row>
+           <ion-row>
+             <ion-button (click)="presentAlert()"  shape="round">
+               <ion-icon class="icon-btn" slot="start" name="close"></ion-icon>
+               <ion-label class="label-btn">Cancel</ion-label>
+             </ion-button>
+           </ion-row>
+         </ion-grid>
+       </div>
+
+    </form>
+  </div>
+
+</ion-content>

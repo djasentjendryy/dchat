@@ -1,0 +1,38 @@
+.tengah{
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.biru{
+  color: #7296C8;
+}
+
+ion-avatar{
+  margin: 1rem auto;
+  width: 20rem;
+  height: 20rem;
+  background-color: white;
+  padding: 1rem;
+}
+ion-icon{
+  margin: auto;
+}
+ion-row ion-button{
+  margin: 3.5rem auto;
+}
+
+.subtitle-regist{
+  margin-top: 1rem;
+  text-align: center;
+}
+img{
+  object-fit: contain;
+}
+@media only screen and (max-width: 600px) {
+  form{
+    padding: 1rem;
+  }
+}
+form{
+  padding: 1rem 2rem 3rem 2rem;
+}

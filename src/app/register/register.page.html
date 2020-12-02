@@ -1,0 +1,54 @@
+<ion-content>
+  <div style="padding-top: 20%;"></div>
+  <ion-text class="judul biru">Register</ion-text>
+  <div style="padding-top: 20%;"></div>
+  <ion-content>
+    <form [formGroup]="formSignUp" (ngSubmit)="submitForm()">
+      <ion-grid>
+
+<!--        <ion-item color="danger" class="ion-margin-bottom" *ngIf="err_msg">-->
+<!--          <ion-label class="ion-text-wrap">{{err_msg}}</ion-label>-->
+<!--        </ion-item>-->
+
+        <ion-item>
+          <ion-label class="biru" position="floating">Username</ion-label>
+          <ion-input type="text" formControlName="nama"></ion-input>
+          <ion-icon name="person" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="biru" position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-icon name="lock-closed-outline" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="biru" position="floating">Email</ion-label>
+          <ion-input type="email" email formControlName="email" ></ion-input>
+          <ion-icon name="mail-outline"color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="biru" position="floating">Phone Number</ion-label>
+          <ion-input type="tel" formControlName="noTelp"></ion-input>
+          <ion-icon name="call-outline" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+      </ion-grid>
+      <div class="btn-register">
+        <ion-button type="submit"  color="primary" [disabled]="!formSignUp.valid">
+          <ion-text color="light">
+            Register
+          </ion-text>
+        </ion-button>
+      </div>
+    </form>
+    <div class="subtitle-regist ion-text-center ion-margin-top">
+      Sudah punya akun ?
+      <ion-text style="color: black" routerLink="/">
+        <a>Log In</a>
+      </ion-text>
+    </div>
+  </ion-content>
+
+</ion-content>

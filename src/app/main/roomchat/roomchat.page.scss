@@ -1,0 +1,24 @@
+.input-column {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-top: 1px solid #ececec;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    background: var(--ion-color-light);
+}
+
+span {
+    color: var(--ion-color-dark);
+}
+
+ion-input {
+    --background: #ececec;
+    --padding-start: 10px !important;
+    border-radius: 10px;
+}
