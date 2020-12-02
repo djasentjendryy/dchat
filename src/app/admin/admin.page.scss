@@ -2,15 +2,21 @@ ion-col{
   height: 25%;
   border-radius: 7%;
 }
-
+ion-icon {
+  color: white;
+  font-size: 35px; //Preferred size here
+}
+ion-title{
+  color: white;
+}
 
 ion-slides {
   margin-top: 8%;
   height: 30%;
 }
-.name-section{
-  margin: 3rem 0 2rem 2rem;
-}
+//.name-section{
+//  margin: 3rem 0 2rem 2rem;
+//}
 .name-section .name{
   font-weight: 550;
   color:#7296C8;
@@ -55,15 +61,13 @@ ion-col {
   --ion-grid-columns: 12;
   margin-left: 1rem;
 }
-.card-title{
-  font-size: 1rem;
-  padding-left: 0.5rem;
-  font-weight: 550;
-}
-.card-subtitle{
-  padding-left: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-ion-title{
-  color:white;
-}
+//.card-title{
+//  font-size: 1rem;
+//  padding-left: 0.5rem;
+//  font-weight: 550;
+//}
+//.card-subtitle{
+//  padding-left: 0.5rem;
+//  padding-bottom: 0.5rem;
+//}
+

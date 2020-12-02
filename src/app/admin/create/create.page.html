@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="/admin"> BACCCK </ion-back-button>
+    <ion-buttons slot="start" >
+      <ion-back-button default-href="/admin" color="light"></ion-back-button>
     </ion-buttons>
     <ion-title>Create Account</ion-title>
   </ion-toolbar>
@@ -12,11 +12,15 @@
     <ion-list>
       <ion-item>
         <ion-label  position="floating">Email</ion-label>
-        <ion-textarea formControlName="email" ></ion-textarea>
+        <ion-textarea
+                formControlName="email"
+                type="email"
+                required>
+        </ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Nama</ion-label>
-        <ion-input formControlName="nama" type="text"></ion-input>
+        <ion-input formControlName="nama" type="text" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Phone Number</ion-label>
@@ -24,9 +28,12 @@
       </ion-item>
       <ion-item>
         <ion-label  position="floating">Password</ion-label>
-        <ion-input formControlName="password" type="text"></ion-input>
+        <ion-input
+                formControlName="password"
+                type="password">
+        </ion-input>
       </ion-item>
-
+      <br>
       <ion-item>
         <ion-label>Privilege</ion-label>
         <ion-select  interface="action-sheet" formControlName="privilege">
@@ -37,7 +44,8 @@
       </ion-item>
 
     </ion-list>
-    <ion-button type="submit" style="margin-left: 16px;">
+    <br><br>
+    <ion-button type="submit" style="margin-left: 40%;">
       Submit
     </ion-button>
   </form>

@@ -54,10 +54,15 @@ export class UserNusaService {
       privilege: user.privilege,
     });
   }
-
+  // return certain user data //
   getUser(uid){
     return this.db.object(this.dbPath + uid).valueChanges();
   }
+
+  get_all_user(){
+    return this.db.list(this.dbPath).valueChanges();
+  }
+
   filterItems(keyword) {
     return this.Dummy.filter(dataDummy => {
       return dataDummy.nama.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
