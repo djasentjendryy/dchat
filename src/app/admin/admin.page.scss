@@ -71,3 +71,36 @@ ion-col {
 //  padding-bottom: 0.5rem;
 //}
 
+.create {
+  color: white;
+  --background: #3E3E3E;
+  --background-activated: black;
+  position: absolute;
+  right: 20px;
+}
+
+.card {
+  background-color: black; // black
+  box-shadow: none;
+  margin-top: 10px;
+  height: 120px;
+}
+
+.item {
+  --background: black;
+  --background-activated: black;
+  height: 120px;
+}
+
+.profile {
+  border-radius: 50% !important;
+  overflow: hidden;
+  width:80px; 
+  height: 120px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.isi{
+  margin-left: 10px;
+}
