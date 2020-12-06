@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'src/app/service/message';
 import { RoomService } from 'src/app/service/room.service';
+import { UserNusaService } from 'src/app/service/user-nusa.service';
 
 @Component({
   selector: 'app-roomchat',
@@ -12,15 +13,17 @@ import { RoomService } from 'src/app/service/room.service';
 })
 export class RoomchatPage implements OnInit {
 
+  currUserId: string = localStorage.getItem('UID')
   currUser: string = JSON.parse(localStorage.getItem('currUser')).nama
   roomId: string;
-  userChat: any;
+  userChat: any = '';
   messages: Message[];
 
   constructor(
     private roomService: RoomService,
     private activatedRouter: ActivatedRoute,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private userService: UserNusaService
   ) { }
 
   ngOnInit() {
@@ -29,7 +32,11 @@ export class RoomchatPage implements OnInit {
       const roomId = paramMap.get('roomId');
       this.roomId = roomId;
       this.db.object('/room/'+roomId).valueChanges().subscribe( data => {
-        this.userChat = data['participant'].filter( user => {return user != this.currUser})
+        const user_key = data['participant'].filter( userId => {return userId != this.currUserId}).pop()
+        this.userService.getUser(user_key).subscribe( data => {
+          this.userChat = data
+        });
+
         this.messages = []
         for(let key in data['messages']){
           this.messages.push(data['messages'][key])
@@ -44,8 +51,8 @@ export class RoomchatPage implements OnInit {
       const time = new Date();
       const message: Message = {
         msg: form.value.pesan,
-        sender: this.currUser,
-        time: time.getTime().toString()
+        sender: this.currUserId,
+        time: time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       };
   
       this.roomService.createMessage(this.roomId, message)

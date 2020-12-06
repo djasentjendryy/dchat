@@ -7,8 +7,8 @@
       <ion-avatar slot="start">
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
       </ion-avatar>
-      <ion-label *ngFor="let name of userChat" color="dark">
-        {{name}}
+      <ion-label color="dark">
+        {{userChat.nama}}
       </ion-label>
     </ion-item>
   </ion-toolbar>
@@ -17,7 +17,7 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngFor="let message of messages">
-      <ion-col *ngIf="message.sender == currUser; else other" offset="4" size="8" class="message ion-margin-bottom">
+      <ion-col *ngIf="message.sender == currUserId; else other" offset="4" size="8" class="message ion-margin-bottom">
         <span color="dark">{{message.msg}}</span>
       </ion-col>
       <ng-template #other>

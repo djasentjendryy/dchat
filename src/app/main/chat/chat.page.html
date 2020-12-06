@@ -15,10 +15,11 @@
   <ion-list>
     <ion-item *ngFor="let rc of recentChat" [routerLink]="['/','main','roomchat',rc.key]">
       <ion-avatar slot="start">
-        <img src="../../../assets/img/logo.png">
+        <img *ngIf="!rc.participant.profileImage" src="../../../assets/img/logo.png">
+        <img [src]="rc.participant.profileImage">
       </ion-avatar>
       <ion-label>
-        <h2 *ngFor="let user of rc.participant">{{user}}</h2>
+        <h2>{{rc.participant.nama}}</h2>
         <p>{{rc.messages.msg}}</p>
       </ion-label>
       <!-- <ion-badge color="danger" mode="ios">99+</ion-badge> -->

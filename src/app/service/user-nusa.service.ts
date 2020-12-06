@@ -71,6 +71,10 @@ export class UserNusaService {
     .once('value')
   }
 
+  getFriends(uid){
+    return this.db.list(this.dbPath+uid+'/friends')
+  }
+
   updateUser(data, uid, uploadImage){
     if (uploadImage){
       this.storage.ref(this.dbPath + uid + '/profileImage/').getDownloadURL().subscribe(res => {
