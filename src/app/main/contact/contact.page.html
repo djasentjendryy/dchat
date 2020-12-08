@@ -11,8 +11,9 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let contact of contacts">
+    <ion-item *ngFor="let contact of contacts" (click)="chat(contact.key)">
       <ion-avatar slot="start">
+        <img *ngIf="!contact.profileImage" src="../../../assets/img/logo.png">
         <img [src]="contact.profileImage" />
       </ion-avatar>
       <ion-label>

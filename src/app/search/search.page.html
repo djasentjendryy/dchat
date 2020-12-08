@@ -14,17 +14,14 @@
 
 <ion-content fullscreen>
   <ion-list>
-    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">
+    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.key)">
       <ion-avatar slot="start">
-        <img src={{dummy.imgUrl}}>
+        <img *ngIf="!dummy.imgUrl" src="../../../assets/img/logo.png">
+        <img [src]=dummy.imgUrl>
       </ion-avatar>
       <ion-label>
         <h2>{{dummy.nama}}</h2>
-        <span *ngFor="let lang of dummy.lang; let i = index">
-          <!-- INI UNTUK GANTI TITIK KALAU UDAH DI AKHIR BAHASA -->
-          <span *ngIf="i != dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}, </span>
-          <span *ngIf="i == dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}.</span>
-        </span>
+        <p class="lightgrey">{{dummy.privilege}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

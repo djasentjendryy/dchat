@@ -22,9 +22,9 @@ export class RoomService {
     return this.roomRef.query.once('value')
   }
 
-  setRoom(user1, user2){
+  setRoom(userId1, userId2){
     return this.roomRef.push({
-      participant: [user1, user2],
+      participant: [userId1, userId2],
       messages: []
     }).key
   }

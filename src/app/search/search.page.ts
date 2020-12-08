@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { debounceTime, filter, map } from 'rxjs/operators';
 import { RoomService } from '../service/room.service';
 import { UserNusaService } from '../service/user-nusa.service';
@@ -20,6 +21,7 @@ export class SearchPage implements OnInit {
   public searchTerm: string = "";
   currUser: string = JSON.parse(localStorage.getItem('currUser')).nama
   currUserId: string = localStorage.getItem('UID');
+  searchSubs: Subscription
 
   constructor(
     private userNusaService : UserNusaService, 
@@ -33,32 +35,39 @@ export class SearchPage implements OnInit {
   ngOnInit() {this.setFilteredItems()}
 
   setFilteredItems() { //FUNCTION UNTUK FILTER
-    const keyword = this.searchControl.value
-    const arr_result = []
-    this.userNusaService.filterItems(keyword)
-    .then(rawdata => {
-      rawdata.forEach( data => {
-        if(data.val()['nama'] != this.currUser){
-          const setdata = {
-            key: data.key,
-            ...data.val()
+    this.searchSubs = this.userNusaService.getFriends(this.currUserId).valueChanges().subscribe( friendsId => {
+      const keyword = this.searchControl.value
+      const arr_result = []
+      this.userNusaService.filterItems(keyword)
+      .then(rawdata => {
+        rawdata.forEach( data => {
+          if(friendsId.includes(data.key)){
+            const setdata = {
+              key: data.key,
+              ...data.val()
+            }
+            arr_result.push(setdata)
           }
-          arr_result.push(setdata)
-        }
-      })
-      this.Dummy = arr_result
-      console.log(this.Dummy)
-    })  
+        })
+        this.Dummy = arr_result
+      })  
+    })
   }
 
-  chat(user:string){
+  ionViewWillLeave(){
+    if(this.searchSubs){
+      this.searchSubs.unsubscribe()
+    }
+  }
+
+  chat(userId:string){
     let currkey = ''
     this.roomService.getRoom()
       .then( snapshot => {
         const data = snapshot.val()
         if(data){
           for( const [key, value] of Object.entries(data)){
-            if(value['participant'][0] == this.currUser && value['participant'][1] == user || value['participant'][0] == user && value['participant'][1] == this.currUser){
+            if(value['participant'][0] == this.currUserId && value['participant'][1] == userId || value['participant'][0] == userId && value['participant'][1] == this.currUserId){
               currkey = key 
               break;
             }
@@ -70,13 +79,11 @@ export class SearchPage implements OnInit {
           this.onClose();
         }
         else{
-          const key = this.roomService.setRoom(this.currUser, user)
+          const key = this.roomService.setRoom(this.currUserId, userId)
           this.navCtrl.navigateForward('/main/roomchat/'+key)
           this.onClose();
         }
       })
-    
-    
   }
   
   onClose(){

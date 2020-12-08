@@ -57,7 +57,7 @@ export class AddcontactPage implements OnInit {
       duration: 1000
     })
 
-    toast.present()
+    await toast.present()
   }
 
   addingContact(userkey){
