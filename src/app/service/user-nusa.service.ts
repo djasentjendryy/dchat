@@ -60,13 +60,15 @@ export class UserNusaService {
   }
 
   get_all_user(){
-    return this.db.list(this.dbPath).valueChanges();
+    return this.db.object(this.dbPath).valueChanges();
   }
 
   filterItems(keyword) {
-    return this.Dummy.filter(dataDummy => {
-      return dataDummy.nama.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
-    });
+    return this.userRef.query
+    .orderByChild('nama')
+    .startAt(keyword)
+    .endAt(keyword + '\uf8ff')
+    .once('value')
   }
 
   updateUser(data, uid, uploadImage){
@@ -82,5 +84,21 @@ export class UserNusaService {
 
   uploadProfileImage(imageData, uid){
     return this.storage.ref(this.dbPath + uid + '/profileImage/').putString(imageData, 'data_url');
+  }
+
+  async addFriends(currUserId, userIdAdd){
+    let query = await this.db.list(this.dbPath+currUserId+'/friends').query.orderByValue().equalTo(userIdAdd).once('value')
+    
+    if(query.val()){
+      return "exist";
+    }
+    else{
+      this.db.list(this.dbPath+currUserId+'/friends').push(userIdAdd)
+      return "success";
+    }
+  }
+
+  deleteUser(uid){
+    return this.db.object(this.dbPath + uid).remove();
   }
 }

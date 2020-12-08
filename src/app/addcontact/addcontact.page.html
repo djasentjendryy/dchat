@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main/tabs/contact" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-justify-center">Add Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar mode="ios" color="light" (ionChange)="filterContact()" [formControl]="searchControl"></ion-searchbar>
+
+  <ion-card color="medium">
+    <ion-card-content>
+      <ion-item *ngFor="let contact of contacts" color="medium" lines="none" (click)="addingContact(contact.key)">
+        <ion-label color="dark">{{contact.nama}} - {{contact.privilege}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

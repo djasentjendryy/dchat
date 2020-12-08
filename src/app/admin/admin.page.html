@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>Admin</ion-title>
     <ion-icon name="log-out-outline" slot="end" (click)="signout()" ></ion-icon>
   </ion-toolbar>
@@ -10,30 +10,37 @@
   <ion-grid>
     <ion-row size="12" >
       <ion-col size="12" style="margin-left: 0; padding-left: 0;">
-        <ion-button color="primary" (click)="create()" style="margin-left: 5px; padding-left: 0;">
-          Create Account<ion-icon name="add-circle" style="margin-left: 0px;"></ion-icon>
+        <ion-button (click)="create()" class="create">
+          Add Contact
+          <ion-icon name="add-circle" style="margin-left: 20px;"></ion-icon>
         </ion-button>
-        <ion-item-sliding style="margin-bottom: 10px;" *ngFor="let  user of users" #slidingItems>
+        <br><br><br>
+        <ion-item-sliding style="margin-bottom: 10px;" *ngFor="let  user of users; let i = index" #slidingItems>
+          <ion-card class="card">
           <!--    edit      -->
           <ion-item-options side="start">
             <ion-item-option color="primary"  ><ion-icon slot="icon-only"  name="create"></ion-icon></ion-item-option>
           </ion-item-options>
           <!--     delete     -->
           <ion-item-options side="end">
-            <ion-item-option color="danger" ><ion-icon slot="icon-only"  name="trash"></ion-icon></ion-item-option>
+            <ion-item-option color="danger" (click)="confirmDelete(i,slidingItems)"><ion-icon slot="icon-only"  name="trash"></ion-icon></ion-item-option>
           </ion-item-options>
-
-          <ion-item  lines="none">
-            <img [src]="user.profileImage" *ngIf="user.profileImage != null" style="width: 70px; height: 70px; margin: 0px; align-self: center;" />
-            <img src="../../../assets/img/orang.png" *ngIf="user.profileImage == null" style="width: 70px; height: 70px; margin: 10px; align-self: center;" />
-            <ion-col style="align-self: center;">
-              <ion-label class="item-content-12">{{user.nama}}<br></ion-label>
-<!--              <ion-label class="item-content-12">Harga Barang : Rp {{item.harga}},00<br></ion-label>-->
-<!--              <ion-label class="item-content-12">Stok         : {{item.stok}}</ion-label>-->
-            </ion-col>
+          
+          <ion-item class="item">
+            
+            <img [src]="user.profileImage" *ngIf="user.profileImage != null" class="profile" >
+            <img src="../../../assets/img/orang.png" *ngIf="user.profileImage == null" class="profile">
+            <div class="isi">
+              <ion-col >
+                <ion-label class="item-content-12" style="color: white;">Nama&nbsp;&nbsp;: {{user.nama}}<br></ion-label>
+                <ion-label class="item-content-12" style="color: white;">Role&nbsp;&nbsp;&nbsp;&nbsp;: {{user.privilege}}<br></ion-label>
+                <ion-label class="item-content-12" style="color: white;">Phone    : {{user.noTelp}}<br></ion-label>
+              </ion-col>
+            </div>
           </ion-item>
+        </ion-card>
         </ion-item-sliding>
-
+      
       </ion-col>
     </ion-row>
   </ion-grid>

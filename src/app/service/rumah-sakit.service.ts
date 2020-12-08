@@ -8,18 +8,18 @@ export class RumahSakitService {
   private rs: RS[] = [
     {
       id: 'r1',
-      nama: 'mitra keluarga',
-      imageURL: 'https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg'
+      nama: 'Mayapada Hospital Kuningan',
+      imageURL: 'https://wartapenanews.com/wp-content/uploads/2020/07/warta-1-36.jpg'
     },
     {
       id: 'r2',
-      nama: 'hermina',
-      imageURL: 'https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg'
+      nama: 'Mayapada Hospital Bogor',
+      imageURL: 'https://mayapadahospital.com/images/hospital/BMC%20NEW.jpg'
     },
     {
       id: 'r3',
-      nama: 'siloam',
-      imageURL: 'https://i.pinimg.com/originals/49/33/f5/4933f55c84c7f6ea31bf7c8685d72c58.jpg'
+      nama: 'RSPAD Gatot Soebroto',
+      imageURL: 'https://d1ojs48v3n42tp.cloudfront.net/provider_location_list/232403_3-3-2020_11-3-9.jpg'
     }
   ];
   constructor() { }

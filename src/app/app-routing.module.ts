@@ -38,8 +38,11 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  }
-
+  },
+  {
+    path: 'addcontact',
+    loadChildren: () => import('./addcontact/addcontact.module').then( m => m.AddcontactPageModule)
+  },
 
 
 ];
