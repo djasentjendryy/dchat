@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'src/app/service/message';
 import { RoomService } from 'src/app/service/room.service';
+
 import { UserNusaService } from 'src/app/service/user-nusa.service';
 
 @Component({
@@ -13,6 +14,8 @@ import { UserNusaService } from 'src/app/service/user-nusa.service';
 })
 export class RoomchatPage implements OnInit {
 
+  tempCurrUser: any;
+  currUserName: string[];
   currUserId: string = localStorage.getItem('UID')
   currUser: string = JSON.parse(localStorage.getItem('currUser')).nama
   roomId: string;
@@ -43,6 +46,17 @@ export class RoomchatPage implements OnInit {
         }
       })
     })
+    // NARIK DATA USER CURRENT
+    this.userNusaService.getUser(this.currUserId).subscribe(data =>{
+      this.tempCurrUser = data;
+      console.log(this.tempCurrUser)
+      // buat ngambil nama current user
+      var str = this.tempCurrUser.nama;
+      var res = str.split(" ");
+      this.currUserName = res[0];
+      console.log(this.tempCurrUser.nama)
+    })
+    
   }
 
   send(form: NgForm){
