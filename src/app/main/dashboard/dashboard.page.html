@@ -42,7 +42,7 @@
   <ion-grid style="margin-top: 7%; margin-left: 0;">
     <ion-row>
       <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f; height: 140px" [routerLink]="['./',data.id]">
-        <img src="{{data.imageURL}}" alt="dummy">
+        <img class="imgHostpital" src="{{data.imageURL}}" alt="dummy">
         <ion-label id="nama_rs">
           {{data.nama}}
         </ion-label>
@@ -80,21 +80,4 @@
       </ion-row>
     </ion-grid> 
   </div>
- <!-- <iframe src="http://localhost:8100/iframe-chat"></iframe> -->
-  
-<!--  <ion-list>-->
-<!--    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">-->
-<!--      <ion-avatar slot="start">-->
-<!--        <img src={{dummy.imgUrl}}>-->
-<!--      </ion-avatar>-->
-<!--      <ion-label>-->
-<!--        <h2>{{dummy.nama}}</h2>-->
-<!--        <span *ngFor="let lang of dummy.lang; let i = index">-->
-<!--          &lt;!&ndash; INI UNTUK GANTI TITIK KALAU UDAH DI AKHIR BAHASA &ndash;&gt;-->
-<!--          <span *ngIf="i != dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}, </span>-->
-<!--          <span *ngIf="i == dummy.lang.length-1" class="lightgrey">Bahasa {{lang}}.</span>-->
-<!--        </span>-->
-<!--      </ion-label>-->
-<!--    </ion-item>-->
-<!--  </ion-list>-->
 </ion-content>
