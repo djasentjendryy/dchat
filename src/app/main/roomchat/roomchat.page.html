@@ -5,7 +5,8 @@
     </ion-buttons>
     <ion-item lines="none" color="false">
       <ion-avatar slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img *ngIf="!userChat.profileImage" src="../../../assets/img/logo.png">
+        <img [src]="userChat.profileImage" />
       </ion-avatar>
       <ion-label color="dark">
         {{userChat.nama}}

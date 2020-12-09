@@ -51,10 +51,21 @@
   </ion-grid>
 
 
-  <div class="recentTitle">
-    <h4>Recent Chat</h4>
-  </div>
-  <div class="recentSection">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <strong>Recent Chat</strong>
+      </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let rc of recentChat | slice:0:3; let i = index" lines="none" [routerLink]="['/','main','roomchat',rc.key]">
+      <ion-avatar slot="start">
+        <img *ngIf="!rc.participant.profileImage" src="../../../assets/img/logo.png">
+        <img [src]=rc.participant.profileImage>
+      </ion-avatar>
+      <ion-label>{{rc.participant.nama}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- <div class="recentSection">
     <ion-grid>
       <ion-row>
         <ion-col size="12" class="recentUser">
@@ -79,7 +90,7 @@
         </ion-col>
       </ion-row>
     </ion-grid> 
-  </div>
+  </div> -->
  <!-- <iframe src="http://localhost:8100/iframe-chat"></iframe> -->
   
 <!--  <ion-list>-->
