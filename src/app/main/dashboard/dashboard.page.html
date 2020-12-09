@@ -42,7 +42,7 @@
   <ion-grid style="margin-top: 7%; margin-left: 0;">
     <ion-row>
       <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f; height: 140px" [routerLink]="['./',data.id]">
-        <img src="{{data.imageURL}}" alt="dummy">
+        <img class="imgHostpital" src="{{data.imageURL}}" alt="dummy">
         <ion-label id="nama_rs">
           {{data.nama}}
         </ion-label>
