@@ -30,7 +30,10 @@
       <!-- COL OTHER USER -->
       <ng-template #other>
         <ion-col size="9" style="position: relative;" class="message other-message">
-          <img class="user-img" [src]="userChat.profileImage">
+          <img *ngIf="!userChat.profileImage; else profile" class="user-img" src="../../../assets/img/logo.png">
+          <ng-template #profile>
+            <img class="user-img" [src]="userChat.profileImage">
+          </ng-template>
           <div class="chat">
             <b>{{userChat.nama}}</b><br>
             <span>{{message.msg}}</span><br>
