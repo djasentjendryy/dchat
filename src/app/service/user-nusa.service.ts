@@ -91,13 +91,13 @@ export class UserNusaService {
   }
 
   async addFriends(currUserId, userIdAdd){
-    let query = await this.db.list(this.dbPath+currUserId+'/friends').query.orderByValue().equalTo(userIdAdd).once('value')
+    let query = await this.db.list(this.dbPath+ currUserId+ '/friends').query.orderByValue().equalTo(userIdAdd).once('value')
     
     if(query.val()){
       return "exist";
     }
     else{
-      this.db.list(this.dbPath+currUserId+'/friends').push(userIdAdd)
+      this.db.list(this.dbPath+ currUserId+ '/friends').push(userIdAdd);
       return "success";
     }
   }
