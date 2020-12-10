@@ -1,12 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/main/dashboard"></ion-back-button>
+      <ion-back-button defaultHref="/main/tabs/dashboard"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ loadedrs.nama}}</ion-title>
+    <ion-title>{{namaRs}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img src="{{loadedrs.imageURL}}">
+  <ion-item>
+    <ion-label> Alamat Rumah Sakit : {{alamatRs}}</ion-label>
+
+  </ion-item>
+
+  <ion-item>
+    <ion-label> Nomor Telp Rumah Sakit : {{phoneNum}}</ion-label>
+
+  </ion-item>
+
 </ion-content>
+

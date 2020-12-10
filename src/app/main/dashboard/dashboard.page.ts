@@ -13,9 +13,11 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
+
 export class DashboardPage implements OnInit {
     user: any;
-    rs: RS[];
+    rs: any;
+    rsId: any;
     @Input() lang: any;
     public Dummy: any = [];
     public test: any = [];
@@ -37,7 +39,9 @@ export class DashboardPage implements OnInit {
     }
 
     ngOnInit() {
-        this.rs = this.rsService.getAllRS();
+        this.rsService.getAllRS().subscribe(res => {
+            this.rs =  Object.values(res);
+        });
     }
 
     setFilteredItems(searchTerm) {

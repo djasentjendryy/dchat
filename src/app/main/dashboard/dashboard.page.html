@@ -11,11 +11,7 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="onClose()">
-        <ion-icon style="color:white" slot="start" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+
     <ion-title class="title">Search</ion-title>
   </ion-toolbar>
   <ion-toolbar>
@@ -37,18 +33,34 @@
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgtphKW31CFsW3M_A0EEPKTU3rgKDREgAzKw&usqp=CAUo" alt="dummy">
     </ion-slide>
   </ion-slides>
+  <br>
 
-
-  <ion-grid style="margin-top: 7%; margin-left: 0;">
-    <ion-row>
-      <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f; height: 140px" [routerLink]="['./',data.id]">
-        <img class="imgHostpital" src="{{data.imageURL}}" alt="dummy">
-        <ion-label id="nama_rs">
-          {{data.nama}}
-        </ion-label>
+  <ion-grid>
+    <ion-row size="12">
+      <ion-col *ngFor="let  data of rs; let i = index " [size]="4 " [routerLink]="['./',i]">
+        <ion-item lines="none">
+          <ion-row>
+            <ion-icon style="width: 70px; height: 70px; margin: 10px; align-self: center;" name="medkit"></ion-icon>
+            <ion-col style="align-self: center;">
+              <ion-label class="item-content-12">{{data.nama}}<br></ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+<!--  <ion-grid style="margin-top: 7%; margin-left: 0;">-->
+<!--    <ion-row>-->
+<!--      <ion-col  *ngFor="let data of rs" size="3" class="rs" style="background-color: #2dd36f; height: 140px" [routerLink]="['./',data.id]">-->
+<!--        <img class="imgHostpital" src="{{data.imageURL}}" alt="dummy">-->
+<!--        <ion-label id="nama_rs">-->
+<!--          {{data.nama}}-->
+<!--        </ion-label>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--  </ion-grid>-->
 
 
   <ion-list>
@@ -89,10 +101,10 @@
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid> 
+    </ion-grid>
   </div> -->
  <!-- <iframe src="http://localhost:8100/iframe-chat"></iframe> -->
-  
+
 <!--  <ion-list>-->
 <!--    <ion-item *ngFor="let dummy of Dummy" (click)="chat(dummy.nama)">-->
 <!--      <ion-avatar slot="start">-->
